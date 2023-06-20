@@ -1,47 +1,59 @@
 # pyqt6_workflow
 
-> 使用pyqt6的工作流，可以很快的开始一个新的程序的编写
+欢迎来到 pyqt6_workflow 仓库！该项目旨在提供使用 PyQt6 快速启动新程序的简化工作流程。
 
-- 安装：`pip install pyqt6 pyqt6-tools pyside6`
+## 安装
+
+要开始使用，请运行以下命令安装所需依赖项：
+
+```bash
+pip install pyqt6 pyqt6-tools pyside6
+```
 
 ## QtDesigner
 
-> 使用QtDesigner，可以实现拖拽布局，不需要手动代码控制布局
-> - 代价就是需要进行下面的uic，pyside6-rcc的步骤
-> - 可以写一个脚本文件，每次修改后只需要运行以下即可
->   - 变为可执行文件：`chmod +x workflow.sh`
-> - 下面的命令是linux的环境下，windows需要自己搜索
+QtDesigner 是一个强大的工具，可以通过拖放组件来创建布局，无需手动编写布局控制代码。然而，它需要执行一些额外的步骤，涉及 `uic`
+和 `pyside6-rcc`。别担心，我们提供了以下说明：
 
-> PS：下面的命令在PyCharm中打开README.md可以点击旁边的绿色按钮直接运行
+1. 运行以下命令将工作流脚本设置为可执行：
+    - 在 Linux 上：`chmod +x workflow.sh`
+    - 对于 Windows 用户，请自行搜索相应的步骤。
+
+**专业提示：** 你可以在 PyCharm 中打开此 README.md 文件，并点击旁边的绿色按钮直接运行工作流脚本。
 
 ```bash
 chmod +x workflow.sh
 ./workflow.sh
 ```
 
-- designer
+### 使用方法
 
-```bash
-pyqt6-tools designer
-```
+- **designer**
+  使用以下命令启动 QtDesigner：
 
-- pyuic6
-    - 将designer的文件转为py文件，方便编写代码逻辑
-    - 没有uic可以执行：`pyqt6-tools installuic`
-    - `-x`表示生成可单文件执行的窗口
-    - `echo -e '' > file`表示追加到文件结尾
-      - 里面的`-e`表示使用斜杠的符号，可以识别`\n`
-    - 增加的时候需要<font color=#008000 >**修改**</font>下面的文件名称，每个单独的文件都需要写一行
+  ```bash
+  pyqt6-tools designer
+  ```
 
-```bash
-pyuic6 -x ui/MainWindow.ui -o ui/MainWindow.py && echo -e "\nfrom res import resource_rc" >> ui/MainWindow.py
-```
+- **pyuic6**
+  `pyuic6` 工具允许你将设计文件转换为 Python 文件，使得编写代码逻辑更加便捷。如果你没有安装 `uic`
+  ，可以执行 `pyqt6-tools installuic` 进行安装。另外，`-x` 标志生成独立的可执行窗口，`echo -e '' > file`
+  命令将内容追加到文件末尾（`-e` 标志启用对 `\n` 的识别）。
 
-- pyside6-rcc
-    - 使用这个将资源文件改为py文件，方便打包和designer使用资源
-    - `sed`是将PySide6改为PyQt6，不然无法正常使用
-    - 增加的时候需要<font color=#008000 >**修改**</font>下面的文件名称
+  **注意：** 每次添加新文件时，请<font color=#008000>**修改**</font>下面命令中的文件名。
 
-```bash
-pyside6-rcc -g python ./res/resource.qrc | sed '0,/PySide6/s//PyQt6/' > ./res/resource_rc.py
-```wo
+  ```bash
+  pyuic6 -x ui/MainWindow.ui -o ui/MainWindow.py && echo -e "\nfrom res import resource_rc" >> ui/MainWindow.py
+  ```
+
+- **pyside6-rcc**
+  此工具将资源文件转换为 Python 文件，方便打包和在 QtDesigner 中使用。命令中的 `sed` 命令将 `PySide6` 替换为 `PyQt6`
+  ，以确保兼容性。
+
+  **注意：** 每次添加新文件时，请<font color=#008000>**修改**</font>下面命令中的文件名。
+
+  ```bash
+  pyside6-rcc -g python ./res/resource.qrc | sed '0,/PySide6/s//PyQt6/' > ./res/resource_rc.py
+  ```
+
+随意探索并充分利用 pyqt6_workflow 仓库。祝你编码愉快！
