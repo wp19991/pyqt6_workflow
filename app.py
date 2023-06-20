@@ -1,7 +1,5 @@
 import sys
 import os
-from PyQt6.QtCore import QT_VERSION_STR
-from PyQt6.QtCore import PYQT_VERSION_STR
 from PyQt6.QtWidgets import QApplication
 
 os.chdir(os.path.dirname(__file__))
@@ -22,6 +20,4 @@ class App(QApplication):
 
 
 if __name__ == "__main__":
-    print(QT_VERSION_STR)
-    print(PYQT_VERSION_STR)
     App().run()
