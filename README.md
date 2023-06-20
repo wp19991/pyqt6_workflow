@@ -1,4 +1,4 @@
-# pyqt6_example
+# pyqt6_workflow
 
 > 使用pyqt6的工作流，可以很快的开始一个新的程序的编写
 
