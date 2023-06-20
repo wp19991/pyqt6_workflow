@@ -11,6 +11,9 @@
 > - 可以写一个脚本文件，每次修改后只需要运行以下即可
 >   - 变为可执行文件：`chmod +x workflow.sh`
 > - 下面的命令是linux的环境下，windows需要自己搜索
+
+> PS：下面的命令在PyCharm中打开README.md可以点击旁边的绿色按钮直接运行
+
 ```bash
 chmod +x workflow.sh
 ./workflow.sh
