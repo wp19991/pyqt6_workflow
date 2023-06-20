@@ -9,6 +9,7 @@
 > 使用QtDesigner，可以实现拖拽布局，不需要手动代码控制布局
 > - 代价就是需要进行下面的uic，pyside6-rcc的步骤
 > - 可以写一个脚本文件，每次修改后只需要运行以下即可
+>   - 变为可执行文件：`chmod +x workflow.sh`
 > - 下面的命令是linux的环境下，windows需要自己搜索
 
 - designer
@@ -36,4 +37,4 @@ pyuic6 -x ui/MainWindow.ui -o ui/MainWindow.py && echo -e "\nfrom res import res
 
 ```bash
 pyside6-rcc -g python ./res/resource.qrc | sed '0,/PySide6/s//PyQt6/' > ./res/resource_rc.py
-```
+```wo
