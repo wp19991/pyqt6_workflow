@@ -64,3 +64,5 @@ chmod +x workflow.sh
   ```
 
 Feel free to explore and make the most of the pyqt6_workflow repository. Happy coding!
+
+![](./doc/main.png)

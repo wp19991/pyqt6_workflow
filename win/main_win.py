@@ -9,5 +9,6 @@ class main_win(QMainWindow, MainWindow):
         super(main_win, self).__init__()
         self.setupUi(self)
 
-        self.open = openglwidget.opengl_widget.MyOpenGLWidget(self.widget)
-        self.open.resize(480, 270)
+        self.open = openglwidget.opengl_widget.MyOpenGLWidget()
+        self.verticalLayout.addWidget(self.open)
+
